@@ -14,6 +14,12 @@ func TestServeMux(t *testing.T) {
 	mux.HandleFunc("/hi", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Hi")
 	})
+	mux.HandleFunc("/images", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, "Main page of images")
+	})
+	mux.HandleFunc("/images/Henry", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, "Henry's images")
+	})
 
 	server := http.Server{
 		Addr:    "127.0.0.1:8080",
